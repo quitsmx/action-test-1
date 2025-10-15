@@ -27,7 +27,7 @@
   ],
   "scripts": {
     "build": "zshy -p tsconfig.dist.json",
-    "prepare": "build",
+    "prepare": "pnpm run build",
     "test": "pnpm run build && node --test test/test.*"
   },
   "prettier": "@quitsmx/prettier-config",
