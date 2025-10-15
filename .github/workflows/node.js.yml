@@ -20,8 +20,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v5
-      with:
-        ssh-key: ${{ secrets.CHECKOUT_KEY }}
     - name: Install pnpm
       uses: pnpm/action-setup@v4
       # La versión de pnpm está en package.json#packageManager
