@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning].
 
+## [unreleased]
+
 ## [0.1.0] - 2025-10-17
 
 ### Added
@@ -15,7 +17,7 @@ and this project adheres to [Semantic Versioning].
 ## Changed
 
 - Update Readme
-- Change icon of showInfoText to 💬️
+- Change icon of `showInfoText` to 💬️
 
 ## [0.0.1] - 2025-10-15
 
@@ -28,5 +30,6 @@ and this project adheres to [Semantic Versioning].
 
 <!-- Versions -->
 
-[0.1.0]: https://github.com/quitsmx/action-test-1/compare/v0.1.0...HEAD
+[unreleased]: https://github.com/quitsmx/action-test-1/compare/v0.0.1...HEAD
+[0.1.0]: https://github.com/quitsmx/action-test-1/compare/v0.0.1...v0.1.0
 [0.0.1]: https://github.com/quitsmx/action-test-1/releases/tag/v0.0.1
