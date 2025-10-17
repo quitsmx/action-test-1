@@ -2,7 +2,9 @@
 
 Displays multiline text in the console, with icon and word wrap.
 
-Make your messages more visible and offer a less crude alternative to a simple "throw"...
+[![CI][ci-badge]][ci-url]
+
+Make your messages more visible and offer a less crude alternative to a simple "throw".
 
 ## Requirements
 
@@ -27,13 +29,13 @@ There are 4 functions, all of which accept one or more blocks of text:
 | Function        | Icon | Use             |
 | --------------- | :--: | --------------- |
 | `showText`      |  ✔️  | `console.log`   |
-| `showInfoText`  |  💡  | `console.info`  |
+| `showInfoText`  | 💬️  | `console.info`  |
 | `showWarnText`  |  ⚠️  | `console.warn`  |
 | `showErrorText` |  ❌  | `console.error` |
 
 ## Example
 
-This example shows basic usage in an 88-column console...
+This example shows basic usage in an 80-column console...
 
 ```js
 import { showErrorText, showInfoText, showText, showWarnText } from '@quitsmx/show-text'
@@ -51,8 +53,11 @@ try {
 
 Output:
 
-![Sample output in 88 columns](image.png)
+![Sample output in 80 columns](image.png)
 
 ## License
 
 The [MIT License](LICENSE) © 2025-Present by QuITS
+
+[ci-badge]: https://github.com/quitsmx/action-test-1/actions/workflows/node.js.yml/badge.svg
+[ci-url]: https://github.com/quitsmx/action-test-1/actions/workflows/node.js.yml
