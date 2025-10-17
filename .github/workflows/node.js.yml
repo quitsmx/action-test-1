@@ -28,7 +28,7 @@ jobs:
         uses: pnpm/action-setup@v4
         # La versión de pnpm está en package.json#packageManager
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
