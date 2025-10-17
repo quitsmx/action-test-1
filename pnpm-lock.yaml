@@ -24,8 +24,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       zshy:
-        specifier: ^0.4.3
-        version: 0.4.3(typescript@5.9.3)
+        specifier: ^0.4.4
+        version: 0.4.4(typescript@5.9.3)
 
 packages:
 
@@ -189,8 +189,8 @@ packages:
   undici-types@7.14.0:
     resolution: {integrity: sha512-QQiYxHuyZ9gQUIrmPo3IA+hUl4KYk8uSA7cHrcKd/l3p1OTpZcM0Tbp9x7FAtXdAYhlasd60ncPpgu6ihG6TOA==}
 
-  zshy@0.4.3:
-    resolution: {integrity: sha512-onhD/E4OVAOFION4DmXza93+x8XItEdyZibxrtDu2rpAYIg63cKhmYqLwXmK0UNfqchvyabbBDUcJbQg097dZA==}
+  zshy@0.4.4:
+    resolution: {integrity: sha512-yNLusNH7L6JHeZNtQcauWO//p/lD75W3M4TE+ZBz9DPZ20RHbMv/2worTxoByUuitvCR9bkn8XDownVTFOtXsQ==}
     hasBin: true
     peerDependencies:
       typescript: '>5.5.0'
@@ -339,7 +339,7 @@ snapshots:
 
   undici-types@7.14.0: {}
 
-  zshy@0.4.3(typescript@5.9.3):
+  zshy@0.4.4(typescript@5.9.3):
     dependencies:
       arg: 5.0.2
       fast-glob: 3.3.3
