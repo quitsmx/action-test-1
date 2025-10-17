@@ -5,11 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning].
 
-## [Unreleased]
+## [0.1.0] - 2025-10-17
 
 ### Added
 
 - Add this changelog
+- Add GitHub Actions for CI, automatic release and dependabot
+
+## Changed
+
+- Update Readme
+- Change icon of showInfoText to 💬️
 
 ## [0.0.1] - 2025-10-15
 
@@ -22,5 +28,5 @@ and this project adheres to [Semantic Versioning].
 
 <!-- Versions -->
 
-[unreleased]: https://github.com/Author/Repository/compare/v0.0.1...HEAD
-[0.0.1]: https://github.com/Author/Repository/releases/tag/v0.0.1
+[0.1.0]: https://github.com/quitsmx/action-test-1/compare/v0.1.0...HEAD
+[0.0.1]: https://github.com/quitsmx/action-test-1/releases/tag/v0.0.1
