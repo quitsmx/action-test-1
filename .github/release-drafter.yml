@@ -6,7 +6,7 @@ categories:
   - title: Bug Fixes
     labels: ['fix', 'bug']
   - title: Maintenance
-    label: 'chore'
+    label: ['chore', 'dependencies']
   - title: Misc
     label: '*'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
@@ -29,7 +29,10 @@ autolabeler:
     title: ['/^(?:fix|fixes|revert)(?:\([^)]+\))?:/']
   - label: enhancement
     branch: ['/^feat\/.+/']
-    title: ['/^(?:feat|perf)(?:\([^)]+\))?:.+/']
+    title: ['/^(?:feat|perf)(?:\([^)]+\))?:/']
+  - label: documentation
+    files: ['*.md']
+    title: ['/^docs?(?:\([^)]+\))?:/']
   - label: test
     files: ['test/**']
     title: ['/^test(?:\([^)]+\))?:/']
