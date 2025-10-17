@@ -1,15 +1,13 @@
-# Detect version change in package.json
+# Drafts your next Release notes as Pull Requests are merged into "main"
 
 name: Release Draft Updater
 
 on:
   push:
     branches: [main]
-    paths: ['package.json']
   pull_request:
     types: [opened, reopened, synchronize]
     branches: [main]
-    paths: ['package.json']
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -23,23 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
-        with:
-          fetch-depth: 2
-          ref: main
-
-      - name: Check version change
-        uses: salsify/action-detect-and-tag-new-version@v2
-        with:
-          create-tag: false
-        id: check
-
-      # Drafts your next Release notes as Pull Requests are merged into "main"
-      - name: Update or publish release draft
+      - name: Update the release draft
         uses: release-drafter/release-drafter@v6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: steps.check.outputs.current-version != steps.check.outputs.previous-version
-        with:
-          publish: true
-          version: ${{ steps.check.outputs.current-version }}
