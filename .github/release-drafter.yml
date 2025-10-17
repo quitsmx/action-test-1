@@ -2,13 +2,9 @@ name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 categories:
   - title: Features
-    labels:
-      - 'feature'
-      - 'enhancement'
+    labels: ['feature', 'enhancement']
   - title: Bug Fixes
-    labels:
-      - 'fix'
-      - 'bug'
+    labels: ['fix', 'bug']
   - title: Maintenance
     label: 'chore'
   - title: Misc
@@ -17,14 +13,11 @@ change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 change-title-escapes: '\<*_&'
 version-resolver:
   major:
-    labels:
-      - 'major'
+    labels: ['major']
   minor:
-    labels:
-      - 'minor'
+    labels: ['minor']
   patch:
-    labels:
-      - 'patch'
+    labels: ['patch']
   default: patch
 autolabeler:
   - label: chore
