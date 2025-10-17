@@ -134,11 +134,12 @@ function printText(text: unknown | unknown[], type: PrefixType): void {
 
   console[fn](`\n ${sx}`)
   for (const line of lines) {
+    const text = wrapText(line, cols)
     if (first) {
       first = false
-      console[fn](prefix[type] + wrapText(line, cols).trimStart())
+      console[fn](prefix[type] + text.trimStart())
     } else {
-      console[fn](wrapText(line, cols))
+      console[fn](text)
     }
     first = false
   }
