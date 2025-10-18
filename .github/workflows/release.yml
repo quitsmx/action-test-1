@@ -11,6 +11,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   publish_release:
     permissions:
@@ -55,9 +58,18 @@ jobs:
               "tag_name": "${{ steps.draft.outputs.tag_name }}"
             }
 
+  call_none:
+    needs: publish_release
+    runs-on: ubuntu-latest
+    steps:
+      - if: needs.publish_release.outputs.publish != ''
+        run: echo 'publish is ${{ needs.publish_release.outputs.publish }}'
+      - if: needs.publish_release.outputs.publish == ''
+        run: echo 'publish is ""'
+
   call_publish:
     needs: publish_release
-    if: needs.publish_release.outputs.publish
+    if: needs.publish_release.outputs.publish != ''
     uses: ./.github/workflows/on-push-tag.yml
     with:
       tag_name: ${{ needs.publish_release.outputs.publish }}

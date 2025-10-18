@@ -16,4 +16,4 @@ jobs:
           echo github.ref : "${{ github.ref }}"
           echo Running in ${{ runner.os }}
           echo Actor: ${{github.actor}} id: ${{github.actor_id}}, trigger: ${{github.triggering_actor}}
-          echo Pay: ${{ toJson(github.event.client_payload) }}
+          echo Pay: '${{ github.event.client_payload }}'
