@@ -29,11 +29,8 @@ jobs:
 
       - name: Install pnpm and dependencies
         uses: pnpm/action-setup@v4
-        with:
-          run_install:
-            - recursive: true
-              args: [--frozen-lockfile, --ignore-scripts]
-            - args: [--global, 'npm@11.5.1']
+      - run: pnpm install --frozen-lockfile, --ignore-scripts
+      - run: pnpm install --global npm@11.5.1
 
       - run: |
           echo github.ref : "${{ github.ref }}"
