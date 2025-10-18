@@ -26,5 +26,4 @@ jobs:
           echo github.ref_type: ${{ github.ref_type }}
           echo Actor: ${{github.actor}} id: ${{github.actor_id}}, trigger: ${{github.triggering_actor}}
           echo Repository: ${{ github.repository }} - ${{ github.workspace }}
-          echo Payload: ${{ toJson(github.event.inputs) }}
-          echo Inputs: ${{ toJson(inputs) }}
+          echo Inputs: ${{ inputs.tag_name }}
