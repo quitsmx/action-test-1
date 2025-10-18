@@ -23,7 +23,8 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.cts",
   "files": [
-    "dist"
+    "dist",
+    "image.png"
   ],
   "scripts": {
     "build": "zshy -p tsconfig.dist.json",
