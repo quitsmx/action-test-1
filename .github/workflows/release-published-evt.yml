@@ -3,12 +3,6 @@ name: On Release Published
 on:
   repository_dispatch:
     types: [release_published_evt]
-  workflow_call:
-    inputs:
-      version:
-        description: 'Version to publish'
-        required: true
-        type: string
 
 permissions:
   contents: read
@@ -22,4 +16,4 @@ jobs:
           echo github.ref : "${{ github.ref }}"
           echo Running in ${{ runner.os }}
           echo Actor: ${{github.actor}} id: ${{github.actor_id}}, trigger: ${{github.triggering_actor}}
-          git status
+          echo Pay: ${{ toJson(github.event.client_payload) }}
