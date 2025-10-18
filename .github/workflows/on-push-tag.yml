@@ -1,0 +1,18 @@
+name: On Push Tag
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  on-push-tags:
+    name: Test the props
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "${GITHUB_REF#refs/tags/v} --- ${GITHUB_REF}"
+          echo github.ref : "${{ github.ref }}"
+          echo Running in ${{ runner.os }}
+          echo Actor: ${{github.actor}} id: ${{github.actor_id}}, trigger: ${{github.triggering_actor}}
+          echo ${{github.event}}

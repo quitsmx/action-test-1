@@ -1,0 +1,15 @@
+name: On Push Tag
+
+on:
+  repository_dispatch:
+    types: [release_published_evt]
+
+jobs:
+  on-push-tags:
+    name: Test the props
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "${GITHUB_REF#refs/tags/v} --- ${GITHUB_REF}"
+          echo github.ref : "${{ github.ref }}"
+          echo ${{github.event}}
