@@ -4,12 +4,17 @@ on:
   repository_dispatch:
     types: [release_published_evt]
 
+permissions:
+  contents: read
+
 jobs:
   on-push-tags:
     name: Test the props
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "${GITHUB_REF#refs/tags/v} --- ${GITHUB_REF}"
           echo github.ref : "${{ github.ref }}"
-          echo ${{github.event}}
+          echo Running in ${{ runner.os }}
+          echo Actor: ${{github.actor}} id: ${{github.actor_id}}, trigger: ${{github.triggering_actor}}
+          echo ${{ toJson(github.event) }}
+          node -v

@@ -1,9 +1,13 @@
 name: On Push Tag
 
 on:
-  push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag de la version a publicar'
+        required: true
+        type: string
+  workflow_call:
 
 jobs:
   on-push-tags:
@@ -15,4 +19,4 @@ jobs:
           echo github.ref : "${{ github.ref }}"
           echo Running in ${{ runner.os }}
           echo Actor: ${{github.actor}} id: ${{github.actor_id}}, trigger: ${{github.triggering_actor}}
-          echo ${{github.event}}
+          echo ${{ toJson(github.event)}}
