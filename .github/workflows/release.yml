@@ -21,7 +21,7 @@ jobs:
       pull-requests: read
     runs-on: ubuntu-latest
     outputs:
-      publish: ${{ steps.draft.outputs.tag_name || '' }}
+      tag_name: ${{ steps.draft.outputs.tag_name || '' }}
 
     steps:
       - uses: actions/checkout@v5
@@ -47,29 +47,16 @@ jobs:
         id: draft
 
       # This is needed because https://github.com/actions/create-release/issues/71
-      - name: Let us know about new release
-        if: steps.check.outputs.current-version != steps.check.outputs.previous-version
-        uses: peter-evans/repository-dispatch@v4
-        with:
-          event-type: 'release_published_evt'
-          client-payload: >-
-            {
-              "id": "${{ steps.draft.outputs.id }}",
-              "tag_name": "${{ steps.draft.outputs.tag_name }}"
-            }
-
-  call_none:
-    needs: publish_release
-    runs-on: ubuntu-latest
-    steps:
-      - if: needs.publish_release.outputs.publish != ''
-        run: echo 'publish is ${{ needs.publish_release.outputs.publish }}'
-      - if: needs.publish_release.outputs.publish == ''
-        run: echo 'publish is ""'
+      # - name: Let us know about new release
+      #   if: steps.check.outputs.current-version != steps.check.outputs.previous-version
+      #   uses: peter-evans/repository-dispatch@v4
+      #   with:
+      #     event-type: 'release_published_evt'
+      #     client-payload: '{"tag_name": "${{ steps.draft.outputs.tag_name }}"}'
 
   call_publish:
     needs: publish_release
-    if: needs.publish_release.outputs.publish != ''
+    if: needs.publish_release.outputs.tag_name != ''
     uses: ./.github/workflows/on-push-tag.yml
     with:
-      tag_name: ${{ needs.publish_release.outputs.publish }}
+      tag_name: ${{ needs.publish_release.outputs.tag_name }}

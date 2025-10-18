@@ -21,9 +21,14 @@ jobs:
     permissions:
       contents: read
     steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.tag_name }}
       - run: |
           echo github.ref : "${{ github.ref }}"
           echo github.ref_type: ${{ github.ref_type }}
           echo Actor: ${{github.actor}} id: ${{github.actor_id}}, trigger: ${{github.triggering_actor}}
           echo Repository: ${{ github.repository }} - ${{ github.workspace }}
           echo Inputs: ${{ inputs.tag_name }}
+      - run: |
+          git status
