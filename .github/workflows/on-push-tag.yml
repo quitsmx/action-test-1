@@ -15,8 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "${GITHUB_REF#refs/tags/v} --- ${GITHUB_REF}"
           echo github.ref : "${{ github.ref }}"
-          echo Running in ${{ runner.os }}
+          echo github.ref_type: ${{ github.ref_type }}
           echo Actor: ${{github.actor}} id: ${{github.actor_id}}, trigger: ${{github.triggering_actor}}
-          echo ${{ toJson(github.event)}}
+          echo Repository: ${{ github.event.repository.full_name }}
