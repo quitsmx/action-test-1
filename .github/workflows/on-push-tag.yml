@@ -3,14 +3,14 @@ name: On Push Tag
 on:
   workflow_dispatch:
     inputs:
-      version:
-        description: 'Version to publish'
+      tag_name:
+        description: 'Tag to deploy'
         required: true
         type: string
   workflow_call:
     inputs:
-      version:
-        description: 'Version to publish'
+      tag_name:
+        description: 'Tag to deploy'
         required: true
         type: string
 
@@ -25,6 +25,7 @@ jobs:
           echo github.ref : "${{ github.ref }}"
           echo github.ref_type: ${{ github.ref_type }}
           echo Actor: ${{github.actor}} id: ${{github.actor_id}}, trigger: ${{github.triggering_actor}}
-          echo Repository: ${{ github.repository }}
-          echo Payload: ${{ github.event.inputs.version }}
+          echo Repository: ${{ github.repository }} - ${{ github.workspace }}
+          echo Payload: ${{ github.event.inputs.tag_name }}
+      - run: |
           git status

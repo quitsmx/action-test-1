@@ -17,6 +17,8 @@ jobs:
       contents: write
       pull-requests: read
     runs-on: ubuntu-latest
+    outputs:
+      publish: ${{ steps.draft.outputs.tag_name || '' }}
 
     steps:
       - uses: actions/checkout@v5
@@ -47,14 +49,15 @@ jobs:
         uses: peter-evans/repository-dispatch@v4
         with:
           event-type: 'release_published_evt'
-          client-payload: |-
+          client-payload: >-
             {
               "id": "${{ steps.draft.outputs.id }}",
               "tag_name": "${{ steps.draft.outputs.tag_name }}"
             }
 
-      - name: Using another action for deployment
-        if: steps.check.outputs.current-version != steps.check.outputs.previous-version
-        uses: ./.github/workflows/on-push-tag.yml
-        with:
-          version: ${{steps.check.outputs.current-version}}
+  call_publish:
+    needs: publish_release
+    if: needs.publish_release.outputs.publish
+    uses: ./.github/workflows/on-push-tag.yml
+    with:
+      version: ${{ needs.publish_release.outputs.publish }}
