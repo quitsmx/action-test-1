@@ -52,3 +52,7 @@ jobs:
               "id": "${{ steps.draft.outputs.id }}",
               "tag_name": "${{ steps.draft.outputs.tag_name }}"
             }
+
+      - name: Using another action for deployment
+        if: steps.check.outputs.current-version != steps.check.outputs.previous-version
+        run: ./on-push-tag.yml
