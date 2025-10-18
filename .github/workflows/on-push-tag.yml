@@ -1,12 +1,12 @@
 name: On Push Tag
 
 on:
-  workflow_dispatch:
-    inputs:
-      tag_name:
-        description: 'Tag to deploy'
-        required: true
-        type: string
+  # workflow_dispatch:
+  #   inputs:
+  #     tag_name:
+  #       description: 'Tag to deploy'
+  #       required: true
+  #       type: string
   workflow_call:
     inputs:
       tag_name:

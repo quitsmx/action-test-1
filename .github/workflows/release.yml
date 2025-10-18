@@ -69,7 +69,7 @@ jobs:
 
   call_publish:
     needs: publish_release
-    if: needs.publish_release.outputs.publish != ''
+    # if needs.publish_release.outputs.publish != ''
     uses: ./.github/workflows/on-push-tag.yml
     with:
       tag_name: ${{ needs.publish_release.outputs.publish }}
