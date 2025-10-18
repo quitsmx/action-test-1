@@ -50,5 +50,5 @@ jobs:
           client-payload: |-
             {
               "id": "${{ steps.draft.outputs.id }}",
-              "tag_name":${{ steps.draft.outputs.tag_name }}"
+              "tag_name": "${{ steps.draft.outputs.tag_name }}"
             }
