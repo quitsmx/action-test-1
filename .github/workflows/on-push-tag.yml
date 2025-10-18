@@ -18,6 +18,8 @@ jobs:
   on-push-tags:
     name: Test the props
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - run: |
           echo github.ref : "${{ github.ref }}"

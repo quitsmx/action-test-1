@@ -22,5 +22,4 @@ jobs:
           echo github.ref : "${{ github.ref }}"
           echo Running in ${{ runner.os }}
           echo Actor: ${{github.actor}} id: ${{github.actor_id}}, trigger: ${{github.triggering_actor}}
-          echo ${{ toJson(github.event) }}
           git status

@@ -55,4 +55,6 @@ jobs:
 
       - name: Using another action for deployment
         if: steps.check.outputs.current-version != steps.check.outputs.previous-version
-        run: .github/workflows/on-push-tag.yml
+        uses: ./.github/workflows/on-push-tag.yml
+        with:
+          version: ${{steps.check.outputs.current-version}}
